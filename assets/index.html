@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html data-page-node-id="uf9NObnA7qAh4pCRuUaESZ" lang="zh-CN"><head data-page-node-id="cXukBU8Y6lHqiPuwDrWBFW">
+<meta data-page-node-id="yLzslACl098ANMxnuLZBNL" charset="utf-8">
+<meta data-page-node-id="acS5wAYROf0D25ht1BBY23" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-page-node-id="cH0DsDI1pEmNt8kiTLUnnQ" data-pnid-children="a14bvpygU04GWcRUFdHseU">WELCOME TO MY WORLD!</title>
+<meta data-page-node-id="59tQtquwHc7ccL5tpJKJvp" name="description" content="一个手绘涂鸦风的个人作品集网站">
+<link data-page-node-id="Lc1Gu36JmD4LcWWNQdQkhx" rel="stylesheet" href="css/style.css?v=165">
+<link rel="stylesheet" href="css/Lanyard.css?v=127">
+<link rel="stylesheet" href="css/CircularGallery.css?v=128">
+</head>
+<body data-page-node-id="3900cgDUfE2XI4q4N7Qljw">
+<div data-page-node-id="u7Vk5oiEFp1XCkKqclVmUv" class="ambient" aria-hidden="true"></div>
+
+<main data-page-node-id="ojZbucOcCyoSik31iXOmGl" id="stage" role="main">
+
+  <!-- ============ 1. 首页 / 加载页（D 方案：银杏纸 + 落叶进度） ============
+       底图是用户自己的银杏插画；进度条跑到哪，落叶就铺到哪：
+       8 片手绘银杏叶从树冠附近左右摇摆着飘下，落地即静止，
+       地面由稀到密、人物桌脚下堆起一小撮。压在桌面/人物前的叶子已去掉。
+       原来的黄色圆盘退成一层几乎看不见的暖光，不再有会涨的液体。 -->
+  <section data-page-node-id="5HktA1XCuxjlDlIhgBWI5k" class="view is-active" data-view="loading" id="v-loading" aria-label="首页">
+    <div data-page-node-id="kjqZ4LlB4N7eFIsI6OM8Oe" class="moon-tint" id="moon-tint" aria-hidden="true"></div>
+    <div data-page-node-id="XSh7Uou5Q07CbZ2iQKCfA8" class="moon-halo" id="moon-halo" aria-hidden="true"></div>
+    <div data-page-node-id="sxG3GKhfBCmxNpba8JuDDY" class="cut-title" id="cut-title" role="img" aria-label="WELCOME TO MY WORLD!"></div>
+    <div data-page-node-id="yXMluOh3HPi9GqDZg6k1Bi" class="leaf-layer" id="leaf-layer" aria-hidden="true"></div>
+    <div data-page-node-id="YnEzJ0MfdvX1v2vM8XJ7qe" class="foot-shadow" aria-hidden="true"></div>
+
+    <!-- 自己的 64 帧人物：鼠标绕着她转，她会跟着转头；pointer-events:none 不挡点击 -->
+    <div data-page-node-id="i7PZVpPxdJHIbur9hBla9P" class="loading-character" aria-hidden="true"><canvas data-page-node-id="eEmwkyQogLAnQPgiuzzgPu" id="loading-sprite"></canvas></div>
+    <div data-page-node-id="oBTSbLm3Qw38GDWqDhGZCi" class="loading-ui">
+      <div data-page-node-id="j1JEwXwVNXcsk6nieYDSKT" class="loading-line">
+        <span data-page-node-id="Wz5ZBMGQKkfSl8Q3sbNwFu" id="loading-label" style="font-weight:400">LOADING my world</span>
+        <span data-page-node-id="lCSH1bga9SiQIryCiBklHs" class="pct" id="loading-pct">0%</span>
+      </div>
+      <div data-page-node-id="A0RULwqkO8ACu5Pspw3P31" class="progress-track"><i data-page-node-id="vyxVwxHlK1RVoEv1NXBsv4" class="progress-fill" id="progress-fill"></i></div>
+      <p data-page-node-id="7vxBQD1v6o1Lj9A1fqAr5G" class="loading-sub" id="loading-sub">加载中</p>
+    </div>
+    <button data-page-node-id="fn5OslL0PFjuT2fIuvzRGi" class="skip-btn" id="skip-btn" type="button">START!</button>
+    <div data-page-node-id="8BkYOIdfjfbciwtAJXMlBZ" class="bottom-fade fade-autumn"></div>
+  </section>
+
+  <!-- ============ 2. 主菜单 / 首页 ============ -->
+  <section data-page-node-id="tzDlsYRWZrmecbnebWNLPG" class="view" data-view="home" id="v-home" aria-label="首页">
+    <img id="home-character-img" class="home-character" data-src="assets/character-ginkgo.webp?v=1" alt="" aria-hidden="true">
+    <button class="home-back" type="button" data-go="loading" aria-label="返回第一页">← 返回</button>
+    <div class="home-greeting" id="home-greeting" aria-hidden="true"></div>
+    <div data-page-node-id="3edbAGDGLc1I51ACU33SGm" class="hotspots" id="home-hotspots"></div>
+    <div data-page-node-id="VEA6BvjIyQ3DAWcvZpPrTJ" class="bottom-fade fade-autumn"></div>
+    <div data-page-node-id="NJdC2dYZWZkbQfElwxrGYw" class="home-footer" id="home-footer"></div>
+  </section>
+
+  <!-- ============ 3. 简历页（纯 HTML 重建，方便改文案） ============ -->
+  <section data-page-node-id="V9BaFeq1cCFBOK2S1nR7Zt" class="view view-paper" data-view="resume" id="v-resume" aria-label="简历">
+    <div data-page-node-id="6nDc7rfXZBQlfzv35YGzRz" class="paper-frame">
+      <button data-page-node-id="mENlG4tayoesGhWBNCnhhO" class="close-btn" type="button" data-close="" aria-label="返回首页">×</button>
+      <a data-page-node-id="um55UZdSLHdT8INUZPk70I" class="pill-btn paper-action" id="resume-action" href="assets/resume.pdf" download="赵怡迪-实习三个月及以上.pdf">下载 PDF ↓</a>
+      <div data-page-node-id="paMCkdOM5o9XQ0kUwBcMu6" class="paper-scroll">
+        <div data-page-node-id="CHHNePHS1ZeauTX279np1U" class="resume-head">
+          <div data-page-node-id="oqu0Kx0f2E71fc1eXBWjwG" class="resume-id">
+            <p data-page-node-id="6Si8ajIpkmkK9E9gYuWQKd" class="eyebrow" id="resume-eyebrow"></p>
+            <h1 data-page-node-id="NZmxtt7KMcgGFSTDM53zB9" id="resume-name"></h1>
+            <p data-page-node-id="Q4h6zk1yUSuCZEffoHnoZm" class="resume-role" id="resume-role"></p>
+            <ul data-page-node-id="HxSnANZh094n5ebnmdJDhs" class="contact" id="resume-contact"></ul>
+          </div>
+          <!-- 3D 挂绳工牌：盖在证件照位置，正面照片+姓名、背面联系方式，可拖拽甩动、点击翻面 -->
+          <div class="resume-lanyard" id="resume-lanyard" aria-label="可交互的证件工牌"></div>
+          <img data-page-node-id="mo8vkGZ6DKcIxa88HcHFkc" class="portrait" src="assets/portrait.png" alt="证件照">
+        </div>
+        <div data-page-node-id="K3VSMwZb6CusfbngX5XBrR" id="resume-sections"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 4. 项目经历 Demo 页 ============ -->
+  <section data-page-node-id="8YL73pJJMgvbv2zy7eLd3b" class="view view-paper" data-view="demo" id="v-demo" aria-label="项目经历">
+    <div class="paper-frame">
+      <button class="close-btn" type="button" data-close="" aria-label="返回首页">×</button>
+      <div class="demo-head">
+        <p class="eyebrow" id="demo-eyebrow"></p>
+        <h2 id="demo-title"></h2>
+      </div>
+      <div class="demo-timeline" id="demo-timeline"></div>
+      <!-- React Bits <Folder /> 一比一组件的挂载点（reactFolder.enabled 时显示） -->
+      <div class="react-folder-host" id="react-folder-host" hidden></div>
+      <!-- 项目经历文件夹（未开启 folder.enabled 时退回这里的三张翻转卡） -->
+      <div class="demo-projects" id="demo-projects"></div>
+      <div class="demo-folder-wrap" id="demo-folder-wrap" hidden>
+        <div class="df-shadow" aria-hidden="true"></div>
+        <!-- 文件夹后页 + 标签 -->
+        <div class="df-back" id="df-back">
+          <span class="df-tab" id="df-tab"></span>
+          <div class="df-back-inner" aria-hidden="true"></div>
+        </div>
+        <!-- 三张纸页（由 app.js 填充） -->
+        <div class="df-papers" id="df-papers"></div>
+        <!-- 文件夹前盖：点击翻开 / 合上 -->
+        <button class="df-front" id="df-front" type="button" aria-label="打开项目文件夹">
+          <span class="df-front-band" aria-hidden="true"></span>
+          <span class="df-caption" id="df-caption"></span>
+          <span class="df-open-hint" aria-hidden="true">点击翻开 ▾</span>
+        </button>
+        <p class="df-hint" id="df-hint"></p>
+      </div>
+      <!-- 纸页拖出来后放到桌面上的层 -->
+      <div class="df-loose-layer" id="df-loose-layer" aria-hidden="true"></div>
+      <div class="demo-footer" id="demo-footer"></div>
+    </div>
+  </section>
+
+  <!-- ============ 5. 校园经历入口 —— 2 张手作纸卡（个人信息 md 第六节） ============ -->
+  <section data-page-node-id="TLlp9Calka8xOJ7C3GU1PD" class="view view-paper" data-view="skills" id="v-skills" aria-label="校园经历">
+    <div data-page-node-id="MfMASQhmbPo4sPwFskBgFa" class="paper-frame skills-frame">
+      <button data-page-node-id="D6FVok0pOHWOpB9ysW5QHk" class="close-btn" type="button" data-close="" aria-label="返回首页">×</button>
+      <!-- 与项目经历同款：时间轴 + 翻转卡 + 底部标签（文字由 app.js 填充） -->
+      <div class="demo-head">
+        <p class="eyebrow" id="campus-eyebrow"></p>
+        <h2 id="campus-title"></h2>
+      </div>
+      <div class="demo-timeline" id="campus-timeline"></div>
+      <div class="demo-projects" id="campus-projects"></div>
+      <div class="demo-footer" id="campus-footer"></div>
+    </div>
+  </section>
+
+  <!-- ============ 6. 实践经历入口（紫底）—— 内页形式已与技能工具互换：现为技能卡片网格 ============ -->
+  <section data-page-node-id="3eIQW4xvu1bSYAe2Y4KjjQ" class="view" data-view="architect" id="v-architect" aria-label="建筑作品集">
+    <div data-page-node-id="uVEhT4I4ih8G8S05p9LsoZ" class="paper-frame skills-frame">
+      <button data-page-node-id="pOUD3V1xygScq4MvmmFjwI" class="close-btn" type="button" data-close="" aria-label="返回首页">×</button>
+      <header data-page-node-id="qjd3pb3ujXf7XaH3CkjQCT" class="page-head">
+        <p data-page-node-id="nZmvtUCXOYijKWugaH826q" class="eyebrow" id="skills-eyebrow"></p>
+        <h2 data-page-node-id="RFM5uAFM2BoTSwDZPxKWIW" id="skills-title"></h2>
+      </header>
+      <div data-page-node-id="hZVr7gF0ZKw1OgDTUM0kXM" class="skills-grid" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ 7. 更多：视差旋转木马（五张生活照） ============ -->
+  <section class="view view-more" data-view="more" id="v-more" aria-label="更多">
+    <div class="more-stage">
+      <div class="more-carousel" id="more-carousel"></div>
+      <p class="more-tip">点一下照片可放大</p>
+    </div>
+    <button class="close-btn" type="button" data-close="" aria-label="返回首页">×</button>
+  </section>
+
+  <!-- ============ 8. 联系我：舞台内占位视图（真正的内容在下方全屏层） ============ -->
+  <section class="view view-contact" data-view="contact" id="v-contact" aria-label="联系我"></section>
+
+</main>
+
+<!-- ============ 联系我全屏层：工牌铺满整个视口，拖动不会跑出边界 ============
+     脱离 865×590 舞台的 transform/overflow 限制，工牌画布 = 整个窗口。
+     只在 body.view-contact 时显示。HUD（返回/标题/提示）浮在工牌之上。 -->
+<div class="contact-fullscreen" id="contact-fullscreen" aria-label="联系我">
+  <div class="contact-lanyard" id="contact-lanyard" aria-label="可交互的证件工牌：拖动甩动，点击翻面"></div>
+  <button class="close-btn" type="button" data-close="" aria-label="返回首页">×</button>
+  <div class="contact-hud">
+    <p class="contact-eyebrow">LET'S CONNECT</p>
+    <h2 class="contact-title">联系我</h2>
+    <p class="contact-hint">↔ 拖动甩一甩 · 点击翻到背面看联系方式</p>
+  </div>
+</div>
+
+<script src="vendor/react.production.min.js"></script>
+<script src="vendor/react-dom.production.min.js"></script>
+<script src="vendor/three.min.js"></script>
+<script src="js/lanyard-data.js?v=127"></script>
+<script src="js/parallax-data.js?v=127"></script>
+<script src="js/gradient-data.js?v=141"></script>
+<script src="js/Lanyard.built.js?v=127"></script>
+<script src="js/CircularGallery.built.js?v=128"></script>
+<script data-page-node-id="fU5lZdygkhIHibjsAAQedH" src="js/content.js?v=147"></script>
+<script data-page-node-id="0nhVxnHMorYv4k26Ak6IoY" src="js/app.js?v=146"></script>
+
+
+</body></html>
